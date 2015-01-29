@@ -13,6 +13,7 @@
 		2739E37C1A71D62000249C48 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2739E37B1A71D62000249C48 /* Images.xcassets */; };
 		2739E37F1A71D62000249C48 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2739E37D1A71D62000249C48 /* LaunchScreen.xib */; };
 		2739E38B1A71D62000249C48 /* POMMultitaskingScreenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739E38A1A71D62000249C48 /* POMMultitaskingScreenTests.swift */; };
+		2756C7E81A79876E00DA1078 /* POMCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756C7E71A79876E00DA1078 /* POMCollectionViewFlowLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		2739E3841A71D62000249C48 /* POMMultitaskingScreenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = POMMultitaskingScreenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2739E3891A71D62000249C48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2739E38A1A71D62000249C48 /* POMMultitaskingScreenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POMMultitaskingScreenTests.swift; sourceTree = "<group>"; };
+		2756C7E71A79876E00DA1078 /* POMCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POMCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				2739E37B1A71D62000249C48 /* Images.xcassets */,
 				2739E37D1A71D62000249C48 /* LaunchScreen.xib */,
 				2739E3721A71D62000249C48 /* Supporting Files */,
+				2756C7E71A79876E00DA1078 /* POMCollectionViewFlowLayout.swift */,
 			);
 			path = POMMultitaskingScreen;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			files = (
 				2739E3771A71D62000249C48 /* ViewController.swift in Sources */,
 				2739E3751A71D62000249C48 /* AppDelegate.swift in Sources */,
+				2756C7E81A79876E00DA1078 /* POMCollectionViewFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +409,7 @@
 				2739E3901A71D62000249C48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2739E3911A71D62000249C48 /* Build configuration list for PBXNativeTarget "POMMultitaskingScreenTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +418,7 @@
 				2739E3931A71D62000249C48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
