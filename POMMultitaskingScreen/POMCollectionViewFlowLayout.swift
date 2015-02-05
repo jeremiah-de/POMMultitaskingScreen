@@ -53,10 +53,16 @@ class POMCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
     func setCellAttributes(attributes:UICollectionViewLayoutAttributes, visibleRect:CGRect)
     {
-        let distance = abs(CGRectGetMidX(visibleRect) - attributes.center.x) / visibleRect.size.width
+        let distance = CGRectGetMidX(visibleRect) - attributes.center.x
+        let normalizedDistance = distance / visibleRect.size.width
+        let invertedDistance = 1.0 - abs(normalizedDistance)
+
+        attributes.zIndex = Int(visibleRect.size.width - abs(distance))
+        
         var transform:CATransform3D = CATransform3DIdentity
-        let scale = 1.0 - distance
-        transform = CATransform3DScale(CATransform3DIdentity, scale, scale, 1)
+        let scale = pow(abs(invertedDistance), 2.0)
+        transform = CATransform3DScale(CATransform3DIdentity, scale, scale, 1.0)
+        transform = CATransform3DRotate(transform, -normalizedDistance, 0.0, 0.0, 1.0)
         attributes.transform3D = transform
     }
     

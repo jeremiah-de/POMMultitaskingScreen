@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     let POMAppCount = 20
+    var isMovingPage:Bool = false
     
     @IBOutlet var screenshotsCollectionView:UICollectionView!
     @IBOutlet var iconsCollectionView:UICollectionView!
@@ -25,7 +26,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let screenshotsCollectionViewFlowLayout = screenshotsCollectionView.collectionViewLayout as UICollectionViewFlowLayout
         screenshotsCollectionViewFlowLayout.itemSize = CGSizeMake(screenSize.width / 2.0, screenSize.height / 2.0)
         screenshotsCollectionViewFlowLayout.minimumInteritemSpacing = 0.0
-        screenshotsCollectionViewFlowLayout.minimumLineSpacing = 20.0
+        screenshotsCollectionViewFlowLayout.minimumLineSpacing = -20.0
         let screenshotsSectionInset = screenSize.width / 4.0
         screenshotsCollectionViewFlowLayout.sectionInset = UIEdgeInsetsMake(0.0, screenshotsSectionInset, 0.0, screenshotsSectionInset)
 
@@ -92,7 +93,25 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
         let pageWidth = screenshotsDistanceBetweenItemsCenter
         let currentPage = Int((screenshotsCollectionView.contentOffset.x + pageWidth / 2.0) / pageWidth)
-        pageControl.currentPage = currentPage
+        
+        if (!isMovingPage) {
+            pageControl.currentPage = currentPage
+        }
+    }
+    
+    func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView)
+    {
+        isMovingPage = false
+    }
+    
+    @IBAction func changePage(sender: UIPageControl)
+    {
+        let screenshotsCollectionViewFlowLayout = screenshotsCollectionView.collectionViewLayout as UICollectionViewFlowLayout
+        let screenshotsDistanceBetweenItemsCenter = screenshotsCollectionViewFlowLayout.minimumLineSpacing + screenshotsCollectionViewFlowLayout.itemSize.width
+        var frame = screenshotsCollectionView.frame
+        frame.origin.x = screenshotsDistanceBetweenItemsCenter * CGFloat(pageControl.currentPage)
+        isMovingPage = true
+        screenshotsCollectionView.scrollRectToVisible(frame, animated: true)
     }
 }
 
