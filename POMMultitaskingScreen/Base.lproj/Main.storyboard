@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="etM-XC-INO">
-                                <rect key="frame" x="0.0" y="500" width="600" height="100"/>
+                                <rect key="frame" x="0.0" y="463" width="600" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="xxm-Dp-Z2C"/>
@@ -48,7 +48,7 @@
                                 </connections>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="b5p-zx-fkO">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="492"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="455"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="kX7-AU-WEe" customClass="POMCollectionViewFlowLayout" customModule="POMMultitaskingScreen" customModuleProvider="target">
                                     <size key="itemSize" width="50" height="50"/>
@@ -72,24 +72,32 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="g8j-bH-YU1"/>
                                 </connections>
                             </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="qqr-1N-0Rc">
+                                <rect key="frame" x="0.0" y="563" width="600" height="37"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="CDv-0s-7Gb" secondAttribute="trailing" id="0RQ-uD-CBd"/>
                             <constraint firstAttribute="trailing" secondItem="etM-XC-INO" secondAttribute="trailing" id="0kT-XO-GZM"/>
+                            <constraint firstItem="qqr-1N-0Rc" firstAttribute="top" secondItem="etM-XC-INO" secondAttribute="bottom" id="2u9-N0-TlC"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="qqr-1N-0Rc" secondAttribute="bottom" id="A9Z-pV-jpu"/>
                             <constraint firstItem="etM-XC-INO" firstAttribute="top" secondItem="b5p-zx-fkO" secondAttribute="bottom" constant="8" id="DYF-hF-8fK"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="etM-XC-INO" secondAttribute="bottom" id="Q2Q-HW-cwl"/>
+                            <constraint firstItem="qqr-1N-0Rc" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailing" id="NKl-E7-eBu"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="CDv-0s-7Gb" secondAttribute="bottom" id="SVw-ok-4HH"/>
                             <constraint firstItem="b5p-zx-fkO" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="VZU-qv-Qii"/>
                             <constraint firstItem="b5p-zx-fkO" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="fof-hD-s1K"/>
                             <constraint firstItem="etM-XC-INO" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="mmK-ut-8Sj"/>
                             <constraint firstAttribute="trailing" secondItem="b5p-zx-fkO" secondAttribute="trailing" id="nOl-Ks-RWb"/>
+                            <constraint firstItem="qqr-1N-0Rc" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="orU-1V-hYr"/>
                             <constraint firstItem="CDv-0s-7Gb" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="qRh-Kl-Ptp"/>
                             <constraint firstItem="CDv-0s-7Gb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="sCD-LA-uAd"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="iconsCollectionView" destination="etM-XC-INO" id="la5-Bj-Wti"/>
+                        <outlet property="pageControl" destination="qqr-1N-0Rc" id="6Rb-2D-8Kj"/>
                         <outlet property="screenshotsCollectionView" destination="b5p-zx-fkO" id="pq9-oE-lhI"/>
                     </connections>
                 </viewController>
@@ -98,6 +106,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="background" width="1662" height="2352"/>
+        <image name="background" width="1080" height="1920"/>
     </resources>
 </document>

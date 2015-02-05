@@ -14,6 +14,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     @IBOutlet var screenshotsCollectionView:UICollectionView!
     @IBOutlet var iconsCollectionView:UICollectionView!
+    @IBOutlet var pageControl:UIPageControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         iconsCollectionViewFlowLayout.minimumLineSpacing = 50.0
         let iconsSectionInset = screenshotsSectionInset + (screenshotsCollectionViewFlowLayout.itemSize.width - iconsCollectionViewFlowLayout.itemSize.width) / 2.0
         iconsCollectionViewFlowLayout.sectionInset = UIEdgeInsetsMake(0.0, iconsSectionInset, 0.0, iconsSectionInset)
+        
+        pageControl.numberOfPages = POMAppCount
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +54,12 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         if (collectionView == screenshotsCollectionView) {
             cell = collectionView.dequeueReusableCellWithReuseIdentifier("ScreenshotCell", forIndexPath: indexPath) as UICollectionViewCell
+            cell.layer.shadowColor = UIColor.blackColor().CGColor
+            cell.layer.shadowRadius = 20.0
+            cell.layer.shadowOpacity = 1.0
+            cell.layer.shadowOffset = CGSizeZero
+            cell.layer.masksToBounds = false
+            cell.layer.shouldRasterize = true
         }
         else {
             cell = collectionView.dequeueReusableCellWithReuseIdentifier("IconCell", forIndexPath: indexPath) as UICollectionViewCell
@@ -80,6 +89,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             let xOffset = scrollView.contentOffset.x - scrollView.frame.origin.x
             screenshotsCollectionView.contentOffset.x = xOffset * offsetFactor
         }
+
+        let pageWidth = screenshotsDistanceBetweenItemsCenter
+        let currentPage = Int((screenshotsCollectionView.contentOffset.x + pageWidth / 2.0) / pageWidth)
+        pageControl.currentPage = currentPage
     }
 }
 

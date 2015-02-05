@@ -28,4 +28,39 @@ class POMCollectionViewFlowLayout: UICollectionViewFlowLayout {
         var offsetX = Float(proposedContentOffset.x) + offsetAdjustment
         return CGPointMake(CGFloat(offsetX), proposedContentOffset.y)
     }
+    
+    override func layoutAttributesForElementsInRect(rect: CGRect) -> [AnyObject]?
+    {
+        let attributesArray = super.layoutAttributesForElementsInRect(rect)  as [UICollectionViewLayoutAttributes]
+        var visibleRect:CGRect = CGRect(origin: collectionView!.contentOffset, size: collectionView!.bounds.size)
+        for attributes in attributesArray {
+            if attributes.representedElementCategory == UICollectionElementCategory.Cell {
+                if CGRectIntersectsRect(attributes.frame, rect) {
+                    self.setCellAttributes(attributes, visibleRect:visibleRect)
+                }
+            }
+        }
+        return attributesArray
+    }
+    
+    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes!
+    {
+        let attributes = super.layoutAttributesForItemAtIndexPath(indexPath)
+        var visibleRect:CGRect = CGRect(origin: collectionView!.contentOffset, size: collectionView!.bounds.size)
+        self.setCellAttributes(attributes, visibleRect:visibleRect)
+        return attributes
+    }
+    
+    func setCellAttributes(attributes:UICollectionViewLayoutAttributes, visibleRect:CGRect)
+    {
+        let distance = abs(CGRectGetMidX(visibleRect) - attributes.center.x) / visibleRect.size.width
+        var transform:CATransform3D = CATransform3DIdentity
+        let scale = 1.0 - distance
+        transform = CATransform3DScale(CATransform3DIdentity, scale, scale, 1)
+        attributes.transform3D = transform
+    }
+    
+    override func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+        return true
+    }
 }
