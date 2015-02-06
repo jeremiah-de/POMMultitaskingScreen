@@ -60,9 +60,11 @@ class POMCollectionViewFlowLayout: UICollectionViewFlowLayout {
         attributes.zIndex = Int(visibleRect.size.width - abs(distance))
         
         var transform:CATransform3D = CATransform3DIdentity
-        let scale = pow(abs(invertedDistance), 2.0)
-        transform = CATransform3DScale(CATransform3DIdentity, scale, scale, 1.0)
-        transform = CATransform3DRotate(transform, -normalizedDistance, 0.0, 0.0, 1.0)
+        let scale = pow(abs(invertedDistance), 6.0)
+        transform = CATransform3DIdentity
+        
+        transform = CATransform3DTranslate(transform, -4.0 * distance * scale, 0.0, 0.0)
+        transform = CATransform3DScale(transform, scale, scale, 1.0)
         attributes.transform3D = transform
     }
     

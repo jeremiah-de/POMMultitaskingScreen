@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		271972A41A843BCC002D449C /* ScreenshotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271972A31A843BCC002D449C /* ScreenshotCollectionViewCell.swift */; };
 		2739E3751A71D62000249C48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739E3741A71D62000249C48 /* AppDelegate.swift */; };
 		2739E3771A71D62000249C48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739E3761A71D62000249C48 /* ViewController.swift */; };
 		2739E37A1A71D62000249C48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2739E3781A71D62000249C48 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		271972A31A843BCC002D449C /* ScreenshotCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenshotCollectionViewCell.swift; sourceTree = "<group>"; };
 		2739E36F1A71D62000249C48 /* POMMultitaskingScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = POMMultitaskingScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2739E3731A71D62000249C48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2739E3741A71D62000249C48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				2739E37D1A71D62000249C48 /* LaunchScreen.xib */,
 				2739E3721A71D62000249C48 /* Supporting Files */,
 				2756C7E71A79876E00DA1078 /* POMCollectionViewFlowLayout.swift */,
+				271972A31A843BCC002D449C /* ScreenshotCollectionViewCell.swift */,
 			);
 			path = POMMultitaskingScreen;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			files = (
 				2739E3771A71D62000249C48 /* ViewController.swift in Sources */,
 				2739E3751A71D62000249C48 /* AppDelegate.swift in Sources */,
+				271972A41A843BCC002D449C /* ScreenshotCollectionViewCell.swift in Sources */,
 				2756C7E81A79876E00DA1078 /* POMCollectionViewFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
