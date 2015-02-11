@@ -31,7 +31,7 @@ class POMCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [AnyObject]?
     {
-        let attributesArray = super.layoutAttributesForElementsInRect(rect)  as [UICollectionViewLayoutAttributes]
+        let attributesArray = super.layoutAttributesForElementsInRect(rect)  as! [UICollectionViewLayoutAttributes]
         var visibleRect:CGRect = CGRect(origin: collectionView!.contentOffset, size: collectionView!.bounds.size)
         for attributes in attributesArray {
             if attributes.representedElementCategory == UICollectionElementCategory.Cell {

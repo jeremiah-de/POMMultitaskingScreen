@@ -23,14 +23,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
         let screenSize = UIScreen.mainScreen().bounds
 
-        let screenshotsCollectionViewFlowLayout = screenshotsCollectionView.collectionViewLayout as UICollectionViewFlowLayout
+        let screenshotsCollectionViewFlowLayout = screenshotsCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         screenshotsCollectionViewFlowLayout.itemSize = CGSizeMake(screenSize.width / 2.0, screenSize.height / 2.0)
         screenshotsCollectionViewFlowLayout.minimumInteritemSpacing = 0.0
         screenshotsCollectionViewFlowLayout.minimumLineSpacing = -150.0
         let screenshotsSectionInset = screenSize.width / 4.0
         screenshotsCollectionViewFlowLayout.sectionInset = UIEdgeInsetsMake(0.0, screenshotsSectionInset, 0.0, screenshotsSectionInset)
 
-        let iconsCollectionViewFlowLayout = iconsCollectionView.collectionViewLayout as UICollectionViewFlowLayout
+        let iconsCollectionViewFlowLayout = iconsCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         let iconHeight = iconsCollectionView.frame.height - 30.0
         iconsCollectionViewFlowLayout.itemSize = CGSizeMake(iconHeight, iconHeight)
         iconsCollectionViewFlowLayout.minimumInteritemSpacing = 0.0
@@ -57,7 +57,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let color = UIColor(hue: hue, saturation: 1, brightness: 1, alpha: 1)
 
         if (collectionView == screenshotsCollectionView) {
-            let screenshotCell = collectionView.dequeueReusableCellWithReuseIdentifier("ScreenshotCell", forIndexPath: indexPath) as ScreenshotCollectionViewCell
+            let screenshotCell = collectionView.dequeueReusableCellWithReuseIdentifier("ScreenshotCell", forIndexPath: indexPath) as! ScreenshotCollectionViewCell
             screenshotCell.color = color
             screenshotCell.layer.shadowColor = UIColor.blackColor().CGColor
             screenshotCell.layer.shadowRadius = 20.0
@@ -68,7 +68,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             cell = screenshotCell
         }
         else {
-            cell = collectionView.dequeueReusableCellWithReuseIdentifier("IconCell", forIndexPath: indexPath) as UICollectionViewCell
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier("IconCell", forIndexPath: indexPath) as! UICollectionViewCell
             cell.backgroundColor = color
             cell.layer.cornerRadius = 20.0
             cell.layer.masksToBounds = true
@@ -81,8 +81,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     func scrollViewDidScroll(scrollView: UIScrollView)
     {
-        let screenshotsCollectionViewFlowLayout = screenshotsCollectionView.collectionViewLayout as UICollectionViewFlowLayout
-        let iconsCollectionViewFlowLayout = iconsCollectionView.collectionViewLayout as UICollectionViewFlowLayout
+        let screenshotsCollectionViewFlowLayout = screenshotsCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        let iconsCollectionViewFlowLayout = iconsCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         let screenshotsDistanceBetweenItemsCenter = screenshotsCollectionViewFlowLayout.minimumLineSpacing + screenshotsCollectionViewFlowLayout.itemSize.width
         let iconsDistanceBetweenItemsCenter = iconsCollectionViewFlowLayout.minimumLineSpacing + iconsCollectionViewFlowLayout.itemSize.width
         let offsetFactor = screenshotsDistanceBetweenItemsCenter / iconsDistanceBetweenItemsCenter
@@ -111,7 +111,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     @IBAction func changePage(sender: UIPageControl)
     {
-        let screenshotsCollectionViewFlowLayout = screenshotsCollectionView.collectionViewLayout as UICollectionViewFlowLayout
+        let screenshotsCollectionViewFlowLayout = screenshotsCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
         let screenshotsDistanceBetweenItemsCenter = screenshotsCollectionViewFlowLayout.minimumLineSpacing + screenshotsCollectionViewFlowLayout.itemSize.width
         var frame = screenshotsCollectionView.frame
         frame.origin.x = screenshotsDistanceBetweenItemsCenter * CGFloat(pageControl.currentPage)
